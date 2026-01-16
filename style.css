@@ -14,7 +14,6 @@ html {
 body {
     background: #000000;
     color: #ffffff;
-    overflow-x: hidden;
 }
 
 /* ---------------- PARTICLES BACKGROUND ---------------- */
@@ -34,16 +33,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: rgba(0, 0, 0, 0.85);
+    background: #000000;
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
 .logo {
-    color: pink;
-    font-weight: bold;
-    font-size: 22px;
+    color:pink;
 }
 
 nav ul {
@@ -56,11 +53,10 @@ nav a {
     text-decoration: none;
     color: #ffffff;
     font-weight: 500;
-    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: pink;
+    color:pink;
 }
 
 /* ---------------- SECTIONS ---------------- */
@@ -69,12 +65,9 @@ nav a:hover {
     text-align: center;
     position: relative;
     z-index: 1;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s forwards;
 }
 
-.section.dark {
+.dark {
     background: rgba(0, 0, 0, 0.85);
 }
 
@@ -88,19 +81,18 @@ nav a:hover {
     align-items: center;
 }
 
+/* HERO CONTENT CENTER */
 .hero-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 /* HERO TEXT */
 .hero-text {
     text-align: center;
     max-width: 700px;
-    animation: fadeIn 2s ease forwards;
 }
 
 .hero h1 {
@@ -112,10 +104,11 @@ nav a:hover {
     color: pink;
 }
 
-/* BUTTONS */
-.btn, .btn-small {
-    background: pink;
-    color: #000;
+/* ---------------- BUTTON ---------------- */
+.btn {
+    background:pink;
+    color: #000000;
+    padding: 14px 300px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
@@ -123,32 +116,17 @@ nav a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn {
-    padding: 14px 300px;
-}
-
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(186, 28, 49, 0.4);
 }
 
-.btn-small {
-    padding: 8px 20px;
-    font-size: 14px;
-}
-
-.btn-small:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(186, 28, 49, 0.4);
-}
-
-/* HERO IMAGE */
+/* ---------------- HERO IMAGE (TOP RIGHT) ---------------- */
 .hero-image {
     position: absolute;
     top: 30px;
     right: 40px;
     z-index: 2;
-    animation: slideInRight 2s ease forwards;
 }
 
 .hero-image img {
@@ -168,49 +146,14 @@ nav a:hover {
     100% { transform: translateY(0); }
 }
 
-/* SLIDE / FADE ANIMATIONS */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
 /* ---------------- CARDS & PROJECTS ---------------- */
-.card, .project-card {
+.card, .project {
     background: #0f0f0f;
     margin: 20px auto;
     padding: 25px;
     max-width: 600px;
     border-left: 5px solid pink;
     text-align: left;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s forwards;
-}
-
-.card:hover, .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(186, 28, 49, 0.4);
-}
-
-/* ---------------- PROJECT IMAGE ---------------- */
-.project-card img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 5px;
 }
 
 /* ---------------- FOOTER ---------------- */
@@ -225,6 +168,7 @@ footer {
 
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 768px) {
+
     nav {
         flex-direction: column;
         gap: 15px;
@@ -253,12 +197,53 @@ footer {
         padding: 60px 25px;
     }
 }
-
-/* ---------------- SECTION HEADINGS ---------------- */
+/* Section Headings */
+.section h2 {
+    color: pink;   /* Change heading color to orange */
+    margin-bottom: 25px;
+    font-size: 36px; /* optional: adjust size */
+}
 .section h2 {
     color: pink;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    text-transform: uppercase;  /* all caps */
+    letter-spacing: 2px;        /* spacing between letters */
     margin-bottom: 25px;
 }
+/* Small button */
+.btn-small {
+    background: pink;       /* same orange accent */
+    color: #000;
+    padding: 8px 20px;        /* smaller padding */
+    font-size: 14px;          /* smaller text */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(186, 28, 49, 0.4);
+}
+/* Floating effect for cards */
+.card, .project {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card:hover, .project:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(186, 28, 49, 0.4);
+}
+.hero-image img {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+
 
