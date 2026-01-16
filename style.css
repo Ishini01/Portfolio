@@ -1,199 +1,107 @@
-/* ---------------- RESET ---------------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: #0D1B2A; /* Dark Blue background */
-    color: white; /* Off-white text */
+  font-family: 'Poppins', sans-serif;
+  background: #0f2027;
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
-/* ---------------- NAVIGATION ---------------- */
+/* Particles */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Navigation */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    background: #1B2A47; /* Slightly lighter navy */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    color:orange; /* Light blue logo */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+  display: flex;
+  list-style: none;
 }
 
-nav a {
-    text-decoration: none;
-    color: #E0E1DD;
-    font-weight: 500;
+nav ul li {
+  margin-left: 20px;
 }
 
-nav a:hover {
-    color: orange; /* Light blue hover */
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-/* ---------------- SECTIONS ---------------- */
+nav ul li a:hover {
+  color: #00eaff;
+}
+
+/* Sections */
 .section {
-    padding: 80px 60px;
-    text-align: center;
+  padding: 100px 10%;
 }
 
-.dark {
-    background: #1B2A47; /* Darker blue for dark sections */
-}
-
-/* ---------------- HERO ---------------- */
+/* Hero */
 .hero {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  min-height: 100vh;
+  text-align: center;
 }
 
-.hero h1 {
-    font-size: 60px;
+.hero h1 span {
+  color: #00eaff;
 }
 
-.hero span {
-    color: orange; /* Accent blue for hero text */
-}
-
-.hero p {
-    margin: 20px 0;
-    font-size: 18px;
-}
-
-/* ---------------- BUTTON ---------------- */
-.btn {
-    background: orange; /* Blue accent button */
-    color: #E0E1DD;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    display: inline-block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(152, 193, 217, 0.4); /* light blue shadow */
-}
-
-/* ---------------- CARDS ---------------- */
-.card, .project {
-    background: #1B2A47; /* Slightly lighter navy */
-    margin: 20px auto;
-    padding: 25px;
-    max-width: 600px;
-    border-left: 5px solid #3D5A80; /* Blue accent border */
-    text-align: left;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.card.show, .project.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ---------------- ABOUT IMAGE ---------------- */
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.profile-img {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #3D5A80; /* blue border */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transition: transform 0.4s ease;
-}
-
-.profile-img:hover {
-    transform: scale(1.05);
-}
-
-/* ---------------- FOOTER ---------------- */
-footer {
-    background: #1B2A47;
-    text-align: center;
-    padding: 20px;
-    color: #aaa;
-}
-
-/* ---------------- RESPONSIVE ---------------- */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .section {
-        padding: 60px 25px;
-    }
-}
-
-/* ---------------- ANIMATIONS ---------------- */
-
-/* Initial hidden state */
-.animate {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-/* When visible */
-.animate.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ---------------- PARTICLES BACKGROUND ---------------- */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-color: #0D1B2A; /* Matches main dark blue theme */
-}
 .hero-img {
-    width: 180px;
-    height: 180px;
-    margin: 30px auto;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #3D5A80;
+  width: 180px;
+  border-radius: 50%;
+  border: 4px solid #00eaff;
+  margin: 30px 0;
+  animation: float 4s ease-in-out infinite;
 }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 30px;
+  background: #00eaff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+/* Cards */
+.card, .project {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+/* Dark Sections */
+.dark {
+  background: rgba(0, 0, 0, 0.6);
+}
+
