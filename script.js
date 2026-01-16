@@ -57,25 +57,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/* PARTICLES */
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 60 },
-    color: { value: "#ff4f9a" },
-    size: { value: 3 },
-    move: { enable: true, speed: 1 }
-  }
-});
-
-/* CURSOR EFFECT */
-const cursor = document.querySelector(".cursor");
-const follower = document.querySelector(".cursor-follower");
-
-document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-
-  follower.style.left = e.clientX - 15 + "px";
-  follower.style.top = e.clientY - 15 + "px";
-});
 
